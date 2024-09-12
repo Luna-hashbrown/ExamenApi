@@ -4,19 +4,19 @@ import { EmailService } from "../../domain/services/email.service";
 
 export class ViruelaController{
 
-    public getCases = async (req:Request, res:Response) =>{
+    public getCasos = async (req:Request, res:Response) =>{
         try {
-            const cases = await ViruelaModel.find();
-            res.json(cases);
+            const casos = await ViruelaModel.find();
+            res.json(casos);
         } catch (error) {
             
         }
     }
 
-    public createCases = async (req:Request, res:Response) =>{
+    public createCasos = async (req:Request, res:Response) =>{
         try {
             const { lat, lng, genre, age, creationDate } = req.body;
-            const newCase = await ViruelaModel.create({
+            const newCaso = await ViruelaModel.create({
                 lat : lat,
                 lng : lng,
                 genre : genre,
@@ -29,7 +29,7 @@ export class ViruelaController{
             //     subject: title,
             //     htmlBody: `<h1>${description}</h1>`
             // });
-            return res.json(newCase)
+            return res.json(newCaso)
         } catch (error) {
             
         }
@@ -38,8 +38,8 @@ export class ViruelaController{
     public getItemById = async (req:Request, res:Response) =>{
         const { id } = req.params;
         try {
-            const cases = await ViruelaModel.findById(id);
-            res.json(cases);
+            const casos = await ViruelaModel.findById(id);
+            res.json(casos);
         } catch (error) {
             console.error(error);
         }
@@ -49,14 +49,14 @@ export class ViruelaController{
         const { id } = req.params;
         const { lat, lng, genre, age, creationDate } = req.body
         try {
-            const cases = await ViruelaModel.findByIdAndUpdate(id, {
+            const casos = await ViruelaModel.findByIdAndUpdate(id, {
                 lat,
                 lng,
                 genre,
                 age,
                 creationDate
             });
-            res.json(cases);
+            res.json(casos);
         } catch (error) {
             console.error(error);
         }

@@ -61,7 +61,6 @@ export function generateIncidentEmailTemplate(lat: number, lng: number,  genre: 
                 <p><strong>Edad del contagiado:</strong> ${age}</p>
                 <p><strong>Latitud:</strong> ${lat}</p>
                 <p><strong>Longitud:</strong> ${lng}</p>
-                <p><strong>Fecha del contagio:</strong> ${creationDate}</p>
                 <img src="${mapImageUrl}"/>
             </div>
             <div class="footer">

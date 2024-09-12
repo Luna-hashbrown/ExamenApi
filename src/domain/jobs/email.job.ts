@@ -31,7 +31,7 @@ export const emailJob = () => {
                     )
                         await emailService.sendEmail({
                             to: "danyjmoon@gmail.com",
-                            subject: `Caso Viruela M.: ${viruelaM.creationDate}`,
+                            subject: `Caso Viruela del Mono: ${viruelaM.creationDate}`,
                             htmlBody: htmlBody
                         });
                         console.log(`Email enviado para el incidente con ID: ${viruelaM._id}`)

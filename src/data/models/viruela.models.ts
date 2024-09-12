@@ -24,8 +24,8 @@ const viruelaSchema = new mongoose.Schema({
     },
     creationDate: {
         type: Date,
-        required: true
-    },
+        default: Date.now
+    }
 });
 
 export const ViruelaModel = mongoose.model('Viruela', viruelaSchema);
