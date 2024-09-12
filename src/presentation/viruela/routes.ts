@@ -10,6 +10,7 @@ export class ViruelaRoutes{
         router.get("/:id",viruelaController.getItemById);
         router.put("/:id", viruelaController.updateCase);
         router.delete("/:id", viruelaController.deleteCase);
+        router.get("/recent", viruelaController.getRecentCases);
         return router;
     }
 }

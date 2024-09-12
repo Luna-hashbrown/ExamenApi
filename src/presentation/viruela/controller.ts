@@ -71,4 +71,20 @@ export class ViruelaController{
             console.error(error);
         }
     }
+
+    public getRecentCases = async (req: Request, res: Response) => {
+        try {
+            const oneWeekAgo = new Date();
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+            const recentCases = await ViruelaModel.find({
+                creationDate: { $gte: oneWeekAgo }
+            });
+
+            res.json(recentCases);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: "Error al obtener los casos recientes" });
+        }
+    }
 }
