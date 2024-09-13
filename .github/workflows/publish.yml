@@ -1,0 +1,24 @@
+on:
+  push:
+    branches:
+
+jobs: 
+    build-and-push:
+      runs-on: ubuntu-latest
+      steps:
+          - name: Chekout code
+            uses: actions/checkout@v2
+
+          - name: Login to Docker hub
+            run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+
+          - name: Build Docker Image
+            run: docker build -t luna2512/711-viruela-api:${{ github.sha }} .
+
+          - name: Tag Latest
+            run: docker tag luna2512/711-viruela-api:${{ github.sha }} luna2512/711-viruela-api:latest
+
+          - name: Push Docker Image
+            run: |
+              docker push luna2512/711-viruela-api:${{ github.sha }}
+              docker push luna2512/711-viruela-api:latest
