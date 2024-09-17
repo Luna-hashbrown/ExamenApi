@@ -1,21 +1,21 @@
 version: '3.8'
 
 services:
-     viruela-api:
-       image: luna2512/711-viruela-api:latest
-       container_name: viruela-api
-       enviroment:
-         PORT: ${PORT}
-         MONGO_URL: ${MONGO_URL}
-         MONGO_DB: ${MONGO_DB}
-         MAILER_ACCESS_TOKEN: ${MAILER_ACCESS_TOKEN}
-         MAILER_SERVICE: ${MAILER_SERVICE}
-         MAILER_EMAIL: ${MAILER_EMAIL} 
-         MAPBOX_ACCESS_TOKEN: ${MAPBOX_ACCESS_TOKEN}
-       ports:
-         - "3000:3000"
-       depends_on:
-         - mongo
+    viruela-api:
+      image: luna2512/711-viruela-api:latest
+      container_name: viruela-api
+      enviroment:
+        PORT: ${PORT}
+        MONGO_URL: ${MONGO_URL}
+        MONGO_DB: ${MONGO_DB}
+        MAILER_ACCESS_TOKEN: ${MAILER_ACCESS_TOKEN}
+        MAILER_SERVICE: ${MAILER_SERVICE}
+        MAILER_EMAIL: ${MAILER_EMAIL} 
+        MAPBOX_ACCESS_TOKEN: ${MAPBOX_ACCESS_TOKEN}
+      ports:
+        - "3000:3000"
+      depends_on:
+        - mongo
 
     mongo:
       image: mongo
