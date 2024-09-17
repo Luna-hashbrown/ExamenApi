@@ -4,7 +4,7 @@ services:
     viruela-api:
       image: luna2512/711-viruela-api:latest
       container_name: viruela-api
-      enviroment:
+      environment:
         PORT: ${PORT}
         MONGO_URL: ${MONGO_URL}
         MONGO_DB: ${MONGO_DB}
